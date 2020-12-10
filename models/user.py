@@ -15,5 +15,7 @@ class  User(models.Model):
         string="privilege",
         required=True)
 
+    company_id = fields.Many2one('product-module.company', string="Instructor")
+
 
     
