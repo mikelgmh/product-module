@@ -15,7 +15,9 @@ class User(models.Model):
         string="privilege",
         required=True)
 
+    #Relations
     company_id = fields.Many2one('product-module.company', string="Instructor")
+    product_id = fields.One2many( string="Products", comodel_name="project-module.product", inverse_name="user_id",ondelete="set null")
 
 
     
