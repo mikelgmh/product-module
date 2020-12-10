@@ -1,7 +1,7 @@
 from odoo import models
 
-"""Storages the orders of the companies. Contais the next values: date of creation,
-total price of order and the which is the actual status of the order """
+#Storages the orders of the companies. Contais the next values: date of creation,
+#total price of order and the which is the actual status of the order.
 class  Order (models.Model):
     _name= 'product-module.order'
     
@@ -23,4 +23,11 @@ class  Order (models.Model):
         string="Status of the order", 
         required=True)
 
-    products=fields.One2Many('product-module.order_product','order_id',string="Products", ondelete='CASCADE')
+    #Reference to the relation table between orders and products
+    products=fields.One2Many('product-module.order_product',
+        'order_id',
+        string="Products", 
+        ondelete='CASCADE')
+    
+    #References the user model
+    user_id=fields.Many2one('res.users', string="User")
