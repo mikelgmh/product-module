@@ -16,9 +16,9 @@ class User(models.Model):
         required=True)
 
     #Relations
-    company_id = fields.Many2one('product-module.company', string="Instructor")
-    product_id = fields.One2many( string="Products", comodel_name="project-module.product", inverse_name="user_id",ondelete="set null")
-    order_id = fields.One2many( string="Orders", comodel_name="project-module.order", inverse_name="user_id",ondelete="set null")
+    company_id = fields.Many2one('res.company', string="Instructor")
+    product_id = fields.One2many( string="Products", comodel_name="res.product", inverse_name="user_id",ondelete="set null")
+    order_id = fields.One2many( string="Orders", comodel_name="res.order", inverse_name="user_id",ondelete="set null")
 
 
     
