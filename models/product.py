@@ -2,28 +2,36 @@
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
 
-from odoo import models
+from odoo import models, fields, api
 
-class  Product (models.Model):
+
+class Product (models.Model):
     # The name of the module in Odoo.
-    __name= 'product-module.product'
+    _name = 'product_module.product'
+
     # The weight of the product.
     weight = fields.Float(
-    string="Product weight")
+        string='Product weight'
+    )
     # The price of the product.
-    price = fields.Double(
-    string="Price of the product")
+    price = fields.Float(
+        string='Price of the product'
+    )
     # The name of the product.
-    name = fields.String (
-    string="Name of the product", 
-    required=True)
+    name = fields.Char(
+        string='Name of the product',
+        required=True
+    )
+
     # The id of the user that have the product.
-    user_id = fields.Many2One(
-    'res.users', 
-    string="Users", 
-    required=True)
+    user_id = fields.Many2one(
+        string='Users',
+        comodel_name='res.users',
+        required=True
+    )
     # The order that contains this product.
-    order = fields.One2Many(
-    'product-module.order_product',
-    'product_id',
-    string="Order")
+    order = fields.One2many(
+        string='Order',
+        comodel_name='product_module.order_product',
+        inverse_name='product_id'
+    )
