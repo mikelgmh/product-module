@@ -1,17 +1,17 @@
 # -*- coding: utf-8 -*-
 {
-   'name': "product-module",
+    'name': "product_module",
 
-'summary': """
+    'summary': """
 Gestión de productos""",
 
-'description': """
+    'description': """
 Modulo que gestiona los productos que tenemos almacenados en nuestra aplicación, pudiendo
 hacer un inventario de ellos, creando nuevos productos, modificandolos y eliminandolos.
 """,
 
-'author': "Aketza, Iker, Mikel, Imanol",
-'website': "",
+    'author': "Aketza, Iker, Mikel, Imanol",
+    'website': "",
 
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/10.0/odoo/addons/base/module/module_data.xml

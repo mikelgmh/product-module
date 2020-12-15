@@ -1,4 +1,4 @@
-# The model reference to Company on the project-module module.
+# The model reference to Company on the project_module module.
 from odoo import models, fields, api
 
 
