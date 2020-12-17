@@ -1,0 +1,12 @@
+<odoo>
+    <data>
+        <record id="product_module_list_action" model="ir.actions.act_window">
+            <field name="name">List Products</field>
+            <field name="res_model">product_module.product</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem id="main_product_module_menu" name="Almazon" />
+        <menuitem id="product_module_menu" name="Products" parent="main_product_module_menu" action="product_module_list_action" />
+    </data>
+</odoo>
