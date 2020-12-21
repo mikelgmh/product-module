@@ -25,9 +25,12 @@ hacer un inventario de ellos, creando nuevos productos, modificandolos y elimina
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
-        'views/views.xml',
-        'views/templates.xml',
+        # 'views/views.xml',
+        # 'views/templates.xml',
         'views/product_module.xml',
+        'views/company.xml',
+        'views/product.xml',
+        'views/user.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
