@@ -1,67 +1,79 @@
 <odoo>
     <data>
-        <record id="product_module_list_action" model="ir.actions.act_window">
+        <!-- Defining actions related to menu items -->
+        
+        <!-- Action that lists existing products in tree format.
+        It is related to the "Products Management" menu item -->
+        <record id="pm_list_product_action" model="ir.actions.act_window">
             <field name="name">List Products</field>
             <field name="res_model">product_module.product</field>
-            <field name="view_type">tree</field>
             <field name="view_mode">tree, form</field>
         </record>
         
-        <record id="product_module_create_action" model="ir.actions.act_window">
+        <!-- Action that gives the option to create a product, in form format..
+        It is related to the "Create Product" menu item -->
+        <record id="pm_create_product_action" model="ir.actions.act_window">
             <field name="name">Create Product</field>
             <field name="res_model">product_module.product</field>
             <field name="view_type">form</field>
             <field name="view_mode">form</field>
         </record>
         
-        <record model="ir.ui.view" id="product_module_product_search_view">
-            <field name="name">Product Search Module</field>
-            <field name="model">product_module.product</field>
-            <field name="arch" type="xml">
-                <search>
-                    <field name="name"/>
-                    <field name="user_id"/>
-                </search>
-            </field>
-        </record>
-        
-        <record model="ir.ui.view" id="product_form_view">
-            <field name="name">Create Product Form</field>
-            <field name="model">product_module.product</field>
-            <field name="arch" type="xml">
-                <form string="Create Product">
-                    <sheet>
-                        <group>
-                            <field name="name"/>
-                            <field name="price"/>
-                            <field name="quantity"/>
-                            <field name="user_id"/>
-                        </group>
-                    </sheet>
-                </form>
-            </field>
-        </record>
-        
-        <record model="ir.ui.view" id="product_tree_view">
-            <field name="name">Product Tree View</field>
-            <field name="model">product_module.product</field>
-            <field name="arch" type="xml">
-                <tree string="Product Management">
-                    <field name="name"/>
-                    <field name="price" placeholder="Unit Price"/>
-                    <field name="quantity" placeholder="Quantity of products in stock"/>
-                    <field name="user_id" placeholder="Worker introducing the product"/>
-                </tree>
-            </field>
+        <!-- Action that lists the existing users on Odoo in tree format.
+        It is related to the "Users" menu item -->
+        <record model="ir.actions.act_window" id="pm_list_user_action">
+            <field name="name">Almazon Users List</field>
+            <field name="res_model">res.users</field>
+            <field name="view_mode">tree,form</field>
         </record>
 
-        <menuitem id="main_product_module_menu" name="Almazon" />
-        <menuitem id="dashboard_menu" name="Dashboard" parent="main_product_module_menu"/>
-        <menuitem id="pm_product_menu" name="Products" parent="main_product_module_menu" />
-            <menuitem id="create_product" name="Create Product" parent="pm_product_menu" action="pm_create_product_action" />
-            <menuitem id="product_management" name="Products Management" parent="pm_product_menu" action="pm_list_product_action" />  
-        <menuitem id="pm_administration_menu" name="Administration" parent="main_product_module_menu" />
-            <menuitem id="pm_company_menu" name="Companies" parent="main_product_module_menu" />    
-            <menuitem id="pm_user_menu" name="Users" parent="main_product_module_menu" />
+        
+        <!-- PARENT MENU -->
+        <menuitem id="main_product_module_menu" 
+                  name="Almazon" 
+                        />
+        
+        <!-- Child Dashboard -->
+        <menuitem id="dashboard_menu" 
+                  name="Dashboard" 
+                  parent="main_product_module_menu"
+        />
+        
+        <!-- Child Products -->
+        <menuitem id="pm_product_menu" 
+                  name="Products" 
+                  parent="main_product_module_menu" 
+        />
+        
+        <!-- Childs of "Products" element -->    
+        <menuitem id="pm_create_product" 
+                      name="Create Product" 
+                      parent="pm_product_menu" 
+                      action="pm_create_product_action" 
+        />
+            
+        <menuitem id="pm_product_management" 
+                      name="Products Management" 
+                      parent="pm_product_menu" 
+                      action="pm_list_product_action" 
+        />  
+
+        <!-- Child Administration -->                   
+        <menuitem id="pm_administration_menu" 
+                  name="Administration" 
+                  parent="main_product_module_menu" 
+        />
+        
+        <!-- Childs of "Administration" element -->  
+        <menuitem id="pm_company_menu" 
+                      name="Companies" 
+                      parent="pm_administration_menu" 
+        />    
+            
+        <menuitem id="pm_user_menu" 
+                      name="Users" 
+                      parent="pm_administration_menu" 
+                      action="pm_list_user_action"
+        />
     </data>
 </odoo>
