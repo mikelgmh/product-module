@@ -1,5 +1,53 @@
 <odoo>
     <data>
-
+        
+        <!-- Custom form view that enables product creation -->
+        <record model="ir.ui.view" id="product_form_view">
+            <field name="name">Create Product Form</field>
+            <field name="model">product_module.product</field>
+            <field name="arch" type="xml">
+                <form string="Create Product">
+                    <sheet>
+                        <group string="Create Product">
+                            <field name="name"/>
+                            <field name="price"/>
+                            <field name="quantity"/>
+                            <field name="user_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <!-- Tree view that shows existing products on database with the following
+        attributes: product name, unit price, quantity on stock, user who creates
+        the product and creation date -->
+        <record model="ir.ui.view" id="product_tree_view">
+            <field name="name">Product Tree View</field>
+            <field name="model">product_module.product</field>
+            <field name="arch" type="xml">
+                <tree string="List of Products">
+                    <field name="name"/>
+                    <field name="price" />
+                    <field name="quantity" />
+                    <field name="user_id" />
+                    <field name="create_date" />
+                </tree>
+            </field>
+        </record>
+        
+        <!-- Search type view to filter products by the following fields: 
+        product name and the user who creates the product -->
+        <record model="ir.ui.view" id="product_search_view">
+            <field name="name">Product Search Module</field>
+            <field name="model">product_module.product</field>
+            <field name="arch" type="xml">
+                <search string="Product Information">
+                    <field name="name"/>
+                    <field name="user_id"/>
+                </search>
+            </field>
+        </record>
+        
     </data>
 </odoo>
