@@ -10,12 +10,12 @@ class Product (models.Model):
     _name = 'product_module.product'
 
     # The weight of the product.
-    weight = fields.Float(
-        string='Product weight'
+    quantity = fields.Integer(
+        string='Quantity'
     )
     # The price of the product.
     price = fields.Float(
-        string='Price of the product'
+        string='Price'
     )
     # The name of the product.
     name = fields.Char(
@@ -25,7 +25,7 @@ class Product (models.Model):
 
     # The id of the user that have the product.
     user_id = fields.Many2one(
-        string='Users',
+        string='User',
         comodel_name='res.users',
         required=True
     )

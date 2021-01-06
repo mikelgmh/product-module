@@ -1,0 +1,27 @@
+<odoo>
+    <data>
+        
+        <!-- Inherited tree view of the res.users model -->
+        <record model="ir.ui.view" id="user_tree_view">
+            <field name="name">Almazon Users List</field>
+            <field name="model">res.users</field>
+            
+            <!-- Reference to parent view -->
+            <field name="inherit_id" ref="base.view_users_tree"/>
+            <field name="arch" type="xml">
+               
+                <!-- We extend the fields we want to include from the inherited view,
+                and the order in which we are going to show them -->
+                <field name="login" position="after">
+                    <field name="company_id" string="Company"/>
+                    <field name="privilege"/>
+                </field>
+                
+                <field name="login_date" position="after">
+                    <field name="lastPasswordChange"/>
+                </field>
+                
+            </field>
+        </record>
+    </data>
+</odoo>
