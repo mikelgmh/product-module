@@ -30,7 +30,7 @@
         
         <!-- PARENT MENU -->
         <menuitem id="main_product_module_menu" 
-                  name="Almazon" 
+                  name="Almazon"
                         />
         
         <!-- Child Dashboard -->
@@ -57,7 +57,13 @@
                       parent="pm_product_menu" 
                       action="pm_list_product_action" 
         />  
-
+        
+         <menuitem id="order_management" 
+                      name="Order Management" 
+                      parent="order_menu" 
+                      action="list_order_action" 
+        />  
+         
         <!-- Child Administration -->                   
         <menuitem id="pm_administration_menu" 
                   name="Administration" 
