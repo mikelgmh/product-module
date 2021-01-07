@@ -1,6 +1,5 @@
 <odoo>
     <data>
-        
         <!-- Inherited tree view of the res.users model -->
         <record model="ir.ui.view" id="user_tree_view">
             <field name="name">Almazon Users List</field>
@@ -11,16 +10,44 @@
             <field name="arch" type="xml">
                
                 <!-- We extend the fields we want to include from the inherited view,
-                and the order in which we are going to show them -->
+                and the order ind which we are going to show them -->
                 <field name="login" position="after">
                     <field name="company_id" string="Company"/>
                     <field name="privilege"/>
                 </field>
-                
-                <field name="login_date" position="after">
-                    <field name="lastPasswordChange"/>
-                </field>
-                
+                <field name="login_date" position="after"></field>
+            </field>
+        </record>
+          <!-- Custom form view that enables product creation -->
+        <record model="ir.ui.view" id="user_form_view">
+            <field name="name">Create User Form</field>
+            <field name="model">res.users</field>
+            <field name="arch" type="xml">
+                <form string="Create User">
+                    <sheet>
+                        <group string="Create User">
+                            <field name="name"/>
+                            <field name="email"/>
+                            <field name="login"/>
+                            <field name="company_name"/>
+                            <field name="lang"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- Vista de búsqueda -->
+        <record model="ir.ui.view" id="user_search_view">
+            <field name="name">Users Search Module</field>
+            <field name="model">res.users</field>
+            <field name="arch" type="xml">
+                <search string="Users Information">
+                    <field name="name"/>
+                    <field name="email"/>
+                    <field name="login"/>
+                    <field name="company_name"/>
+                    <field name="lang"/>
+                </search>
             </field>
         </record>
     </data>
