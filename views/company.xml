@@ -1,5 +1,18 @@
 <odoo>
     <data>
-
+        <record id="company_tree_view" model="ir.ui.view">
+            <field name="name">Comapny View</field>
+            <field name="model">res.company</field>
+            <field name="type">tree</field>
+            <field name="mode">primary</field>
+            <field name="priority" eval="16" />
+            <field name="active" eval="True" />
+            <field name="inherit_id" ref="base.view_company_tree" />
+            <field name="arch" type="xml">
+                <field name="name" position="after">
+                    <field name="company_type" string="Company Type"/>
+                </field>
+            </field>
+        </record>
     </data>
 </odoo>

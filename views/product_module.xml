@@ -7,7 +7,7 @@
         <record id="pm_list_product_action" model="ir.actions.act_window">
             <field name="name">List Products</field>
             <field name="res_model">product_module.product</field>
-            <field name="view_mode">tree, form</field>
+            <field name="view_mode">tree,form</field>
         </record>
         
         <!-- Action that gives the option to create a product, in form format..
@@ -25,6 +25,14 @@
             <field name="name">Almazon Users List</field>
             <field name="res_model">res.users</field>
             <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Action that lists the existing companies on Odoo in tree format.
+        It is related to the "Company" menu item -->
+        <record model="ir.actions.act_window" id="pm_list_companies_action">
+            <field name="name">Almazon Companies List</field>
+            <field name="res_model">res.company</field>
+            <field name="view_mode">tree</field>
         </record>
 
         
@@ -67,7 +75,8 @@
         <!-- Childs of "Administration" element -->  
         <menuitem id="pm_company_menu" 
                       name="Companies" 
-                      parent="pm_administration_menu" 
+                      parent="pm_administration_menu"
+                      action="pm_list_companies_action" 
         />    
             
         <menuitem id="pm_user_menu" 
