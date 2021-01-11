@@ -13,7 +13,10 @@
                 and the order ind which we are going to show them -->
                 <field name="login" position="after">
                     <field name="company_id" string="Company"/>
+                    <field name="email"/>
                     <field name="privilege"/>
+                    <field name="login"/>
+                    <field name="company_name"/>
                 </field>
                 <field name="login_date" position="after"></field>
             </field>
