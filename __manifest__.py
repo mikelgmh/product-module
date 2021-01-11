@@ -31,6 +31,7 @@ hacer un inventario de ellos, creando nuevos productos, modificandolos y elimina
         'views/company.xml',
         'views/product.xml',
         'views/user.xml',
+        'views/order.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
