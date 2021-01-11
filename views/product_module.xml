@@ -14,16 +14,8 @@
                 </p>
             </field>
         </record>
-        
-        <!-- Action that gives the option to create a product, in form format..
-        It is related to the "Create Product" menu item -->
-        <record id="pm_create_product_action" model="ir.actions.act_window">
-            <field name="name">Create Product</field>
-            <field name="res_model">product_module.product</field>
-            <field name="view_type">form</field>
-            <field name="view_mode">form</field>
-        </record>
-        
+      
+                      
         <!-- Action that lists the existing users on Odoo in tree format.
         It is related to the "Users" menu item -->
         <record model="ir.actions.act_window" id="pm_list_user_action">
