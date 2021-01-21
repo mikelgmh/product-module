@@ -1,5 +1,5 @@
 # The model reference to Company on the project_module module.
-from odoo import models, fields, api
+from odoo import models, fields, api, exceptions
 
 
 class Company(models.Model):
@@ -14,6 +14,10 @@ class Company(models.Model):
         selection=[('1', 'ADMIN'), ('2', 'PROVIDER'), ('3', 'CLIENT')],
         required=True
     )
+    # The amount of bosses in the company.
+    company_bosses = fields.Integer(
+        string='Amount of bosses'
+    )
 
     # The One2Many relation to the res.users.
     user_id = fields.One2many(
@@ -22,3 +26,12 @@ class Company(models.Model):
         inverse_name='company_id',
         ondelete='restrict'
     )
+
+    # The constrains to the company_bosses It validates if the amount of users
+    # is more than 10.
+    @api.constrains('company_bosses')
+    def _check_bosses(self):
+        for r in self:
+            if r.company_bosses < 10:
+                raise exceptions.ValidationError(
+                    "Insufficient bosses: %s" % r.company_bosses)
