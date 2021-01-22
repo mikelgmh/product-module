@@ -16,9 +16,13 @@
             <field name="name">Create Product</field>
             <field name="res_model">product_module.product</field>
             <field name="view_type">form</field>
-            <field name="view_mode">form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create the first product
+                </p>
+            </field>
         </record>
-        
+      
+                      
         <!-- Action that lists the existing users on Odoo in tree format.
         It is related to the "Users" menu item -->
         <record model="ir.actions.act_window" id="pm_list_user_action">
@@ -36,9 +40,17 @@
         </record>
 
         
+        <!-- Action that lists existing orders in tree format.
+        It is related to the "Orders Management" menu item -->
+        <record id="list_order_action" model="ir.actions.act_window">
+            <field name="name">List Orders</field>
+            <field name="res_model">product_module.order</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
         <!-- PARENT MENU -->
         <menuitem id="main_product_module_menu" 
-                  name="Almazon" 
+                  name="Almazon"
                         />
         
         <!-- Child Dashboard -->
@@ -53,19 +65,24 @@
                   parent="main_product_module_menu" 
         />
         
-        <!-- Childs of "Products" element -->    
-        <menuitem id="pm_create_product" 
-                      name="Create Product" 
-                      parent="pm_product_menu" 
-                      action="pm_create_product_action" 
-        />
-            
+        <!-- Grandchildren of Products element -->    
         <menuitem id="pm_product_management" 
                       name="Products Management" 
                       parent="pm_product_menu" 
                       action="pm_list_product_action" 
         />  
-
+        
+        <menuitem id="pm_order_menu" 
+                  name="Orders" 
+                  parent="main_product_module_menu" 
+        />
+        
+         <menuitem id="order_management" 
+                      name="Order Management" 
+                      parent="pm_order_menu"
+                      action="list_order_action" 
+        />  
+         
         <!-- Child Administration -->                   
         <menuitem id="pm_administration_menu" 
                   name="Administration" 
