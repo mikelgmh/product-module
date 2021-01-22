@@ -1,0 +1,52 @@
+<odoo>
+    <data>
+        
+        <!-- Custom form view that enables order creation -->
+        <record model="ir.ui.view" id="order_form_view">
+            <field name="name">Create Order Form</field>
+            <field name="model">product_module.order</field>
+            <field name="arch" type="xml">
+                <form string="Create Order">
+                    <sheet>
+                        <group string="Create Order">
+                            <field name="date"/>
+                            <field name="total_price"/>
+                            <field name="status"/>
+                            <field name="user_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <!-- Tree view that shows existing orders on database with the following
+        attributes: order date, total price, status of the order, user who creates
+        the order and products on the order -->
+        <record model="ir.ui.view" id="order_tree_view">
+            <field name="name">Order Tree View</field>
+            <field name="model">product_module.order</field>
+            <field name="arch" type="xml">
+                <tree string="List of Orders">
+                    <field name="date"/>
+                    <field name="total_price" />
+                    <field name="status" />
+                    <field name="user_id" />
+                </tree>
+            </field>
+        </record>
+        
+        <!-- Search type view to filter orders by the following fields: 
+        order date and the user who creates the order -->
+        <record model="ir.ui.view" id="order_search_view">
+            <field name="name">Order Search Module</field>
+            <field name="model">product_module.order</field>
+            <field name="arch" type="xml">
+                <search string="Order Information">
+                    <field name="date"/>
+                    <field name="user_id"/>
+                </search>
+            </field>
+        </record>
+        </data>
+</odoo>
+        

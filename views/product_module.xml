@@ -23,11 +23,18 @@
             <field name="res_model">res.users</field>
             <field name="view_mode">tree,form</field>
         </record>
-
         
+        <!-- Action that lists existing orders in tree format.
+        It is related to the "Orders Management" menu item -->
+        <record id="list_order_action" model="ir.actions.act_window">
+            <field name="name">List Orders</field>
+            <field name="res_model">product_module.order</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
         <!-- PARENT MENU -->
         <menuitem id="main_product_module_menu" 
-                  name="Almazon" 
+                  name="Almazon"
                         />
         
         <!-- Child Dashboard -->
@@ -48,7 +55,18 @@
                       parent="pm_product_menu" 
                       action="pm_list_product_action" 
         />  
-
+        
+        <menuitem id="pm_order_menu" 
+                  name="Orders" 
+                  parent="main_product_module_menu" 
+        />
+        
+         <menuitem id="order_management" 
+                      name="Order Management" 
+                      parent="pm_order_menu"
+                      action="list_order_action" 
+        />  
+         
         <!-- Child Administration -->                   
         <menuitem id="pm_administration_menu" 
                   name="Administration" 
