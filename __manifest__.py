@@ -20,7 +20,7 @@ hacer un inventario de ellos, creando nuevos productos, modificandolos y elimina
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': ['base','report'],
 
     # always loaded
     'data': [
