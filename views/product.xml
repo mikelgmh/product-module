@@ -12,6 +12,7 @@
                             <field name="name"/>
                             <field name="price"/>
                             <field name="quantity"/>
+                            <field name="total_price"/>
                             <field name="user_id"/>
                         </group>
                     </sheet>
@@ -27,11 +28,14 @@
             <field name="model">product_module.product</field>
             <field name="arch" type="xml">
                 <tree string="List of Products">
+                    <!-->Numeric fields are defined as type 'char' to align all 
+                    content in the table in the same way -->
                     <field name="name"/>
-                    <field name="price" />
-                    <field name="quantity" />
-                    <field name="user_id" />
-                    <field name="create_date" />
+                    <field name="user_id"/>
+                    <field name="create_date"/>
+                    <field name="quantity" type="char"/>
+                    <field name="price" type="char"/>
+                    <field name="total_price" type="char"/>
                 </tree>
             </field>
         </record>
