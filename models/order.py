@@ -1,4 +1,4 @@
-from odoo import models, fields, api
+from odoo import models, fields, api, exceptions
 
 # Storages the orders of the companies. Contais the next values: date of
 # creation, total price of order and the which is the actual status
@@ -37,3 +37,19 @@ class Order (models.Model):
         string='User',
         comodel_name='res.users'
     )
+    
+     # Onchange event to warn the user that the price value is incorrect
+    @api.onchange('total_price')
+    def _verify__number(self):
+        if self.total_price <= 0:
+            return {
+                'warning': {
+                    'title': "Incorrect total price value",'message': 
+                    "The total price can't be less than 0",
+                    },
+                }
+    @api.constrains('total_price')
+    def _check_order_total_price(self):
+            if self.total_price > 1000:
+                raise exceptions.ValidationError("Total price must be less than 1000")
+            
