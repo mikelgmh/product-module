@@ -7,13 +7,6 @@
                 <div class="page">
                     <div class="oe_structure"/>
                     <t t-foreach="docs" t-as="p">
-		    <div class="row">
-                        <div class="col-md-12">
-                            <h2>
-                                <span t-field="p.name"></span>
-                            </h2>
-                        </div>
-                    </div>
                     <div class="row">
                         <div class="col-md-12">
                             <table class="table table-condensed">
@@ -27,27 +20,20 @@
                                     </tr>
                                </thead>
                                <tbody>
-                                    <t t-set="task_ids_sorted" t-value="l.task_ids.sorted(key=lambda r:(r.stage_id.id))"/>
-                                    <t t-foreach="task_ids_sorted" t-as="t">
+                                    <t t-foreach="docs" t-as="t">
 					<tr>
                                             <td>
-                                            	<span t-field="t.stage_id.name"/>
+                                            	<span t-field="t.name"/>
                                             </td>
 					    <td>
-						<span t-field="t.name"/>
+						<span t-field="t.price"/>
 					    </td>
 					    <td>
-						<span t-field="t.user_id"/>
+						<span t-field="t.quantity"/>
 					    </td>
                                             <td>
-                                               <span t-field="t.date_deadline"/>
+                                               <span t-field="t.total_price"/>
                                             </td>
-					    <td>
-						<progress t-att-value="t.progress" max="100"></progress>
-					    </td>
-					    <td>
-						<span t-field="t.progress"/>%
-					    </td>
                                         </tr>
 					</t>
                                 </tbody>
