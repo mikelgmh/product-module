@@ -6,7 +6,7 @@
                 <!--><t t-value="True" t-set="show_project"/><-->
                 <div class="page">
                     <div class="oe_structure"/>
-                    <t t-foreach="docs" t-as="p">
+                    
                     <div class="row">
                         <div class="col-md-12">
                             <table class="table table-condensed">
@@ -40,7 +40,7 @@
                             </table>
                         </div>
                     </div>
-		    </t>
+		    
                     <div class="oe_structure"/>
                 </div>
             </t>
