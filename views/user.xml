@@ -34,7 +34,7 @@
                             <field name="email"/>
                             <field name="privilege"/>
                             <field name="login"/>
-                            <field name="company_name"/>
+                            <field name="company_id"/>
                             <field name="lang"/>
                         </group>
                     </sheet>
