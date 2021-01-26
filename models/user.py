@@ -34,3 +34,13 @@ class User(models.Model):
         comodel_name='product_module.order',
         inverse_name='user_id'
     )
+
+    @api.onchange('total_price')
+    def _verify__number(self):
+        if self.total_price <= 0:
+            return {
+                'warning': {
+                    'title': "Incorrect total price value", 'message':
+                    "The total price can't be less than 0",
+                },
+            }
