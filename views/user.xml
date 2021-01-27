@@ -32,6 +32,8 @@
                         <group string="Create User">
                             <field name="name"/>
                             <field name="email"/>
+                            <field name="children_number"/>
+                            <field name="alias"/>
                             <field name="privilege"/>
                             <field name="login"/>
                             <field name="company_id"/>
