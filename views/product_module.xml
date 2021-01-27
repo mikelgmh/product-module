@@ -1,28 +1,21 @@
 <odoo>
     <data>
         <!-- Defining actions related to menu items -->
-        
+
         <!-- Action that lists existing products in tree format.
         It is related to the "Products Management" menu item -->
         <record id="pm_list_product_action" model="ir.actions.act_window">
             <field name="name">List Products</field>
             <field name="res_model">product_module.product</field>
             <field name="view_mode">tree,form</field>
-        </record>
-        
-        <!-- Action that gives the option to create a product, in form format..
-        It is related to the "Create Product" menu item -->
-        <record id="pm_create_product_action" model="ir.actions.act_window">
-            <field name="name">Create Product</field>
-            <field name="res_model">product_module.product</field>
             <field name="view_type">form</field>
             <field name="help" type="html">
                 <p class="oe_view_nocontent_create">Create the first product
                 </p>
             </field>
         </record>
-      
-                      
+
+
         <!-- Action that lists the existing users on Odoo in tree format.
         It is related to the "Users" menu item -->
         <record model="ir.actions.act_window" id="pm_list_user_action">
@@ -32,14 +25,14 @@
         </record>
 
         <!-- Action that lists the existing companies on Odoo in tree format.
-        It is related to the "Company" menu item -->        
+        It is related to the "Company" menu item -->
         <record id="pm_list_companies_action" model="ir.actions.act_window">
             <field name="name">Almazon Companies List</field>
             <field name="res_model">res.company</field>
             <field name="view_mode">tree,form</field>
         </record>
 
-        
+
         <!-- Action that lists existing orders in tree format.
         It is related to the "Orders Management" menu item -->
         <record id="list_order_action" model="ir.actions.act_window">
@@ -49,57 +42,27 @@
         </record>
 
         <!-- PARENT MENU -->
-        <menuitem id="main_product_module_menu" 
-                  name="Almazon"
-                        />
-        
+        <menuitem id="main_product_module_menu" name="Almazon" />
+
         <!-- Child Dashboard -->
-        <menuitem id="dashboard_menu" 
-                  name="Dashboard" 
-                  parent="main_product_module_menu"
-        />
-        
+        <menuitem id="dashboard_menu" name="Dashboard" parent="main_product_module_menu" />
+
         <!-- Child Products -->
-        <menuitem id="pm_product_menu" 
-                  name="Products" 
-                  parent="main_product_module_menu" 
-        />
-        
-        <!-- Grandchildren of Products element -->    
-        <menuitem id="pm_product_management" 
-                      name="Products Management" 
-                      parent="pm_product_menu" 
-                      action="pm_list_product_action" 
-        />  
-        
-        <menuitem id="pm_order_menu" 
-                  name="Orders" 
-                  parent="main_product_module_menu" 
-        />
-        
-         <menuitem id="order_management" 
-                      name="Order Management" 
-                      parent="pm_order_menu"
-                      action="list_order_action" 
-        />  
-         
-        <!-- Child Administration -->                   
-        <menuitem id="pm_administration_menu" 
-                  name="Administration" 
-                  parent="main_product_module_menu" 
-        />
-        
-        <!-- Childs of "Administration" element -->  
-        <menuitem id="pm_company_menu" 
-                      name="Companies" 
-                      parent="pm_administration_menu"
-                      action="pm_list_companies_action" 
-        />    
-            
-        <menuitem id="pm_user_menu" 
-                      name="Users" 
-                      parent="pm_administration_menu" 
-                      action="pm_list_user_action"
-        />
+        <menuitem id="pm_product_menu" name="Products" parent="main_product_module_menu" />
+
+        <!-- Grandchildren of Products element -->
+        <menuitem id="pm_product_management" name="Products Management" parent="pm_product_menu" action="pm_list_product_action" />
+
+        <menuitem id="pm_order_menu" name="Orders" parent="main_product_module_menu" />
+
+        <menuitem id="order_management" name="Order Management" parent="pm_order_menu" action="list_order_action" />
+
+        <!-- Child Administration -->
+        <menuitem id="pm_administration_menu" name="Administration" parent="main_product_module_menu" />
+
+        <!-- Childs of "Administration" element -->
+        <menuitem id="pm_company_menu" name="Companies" parent="pm_administration_menu" action="pm_list_companies_action" />
+
+        <menuitem id="pm_user_menu" name="Users" parent="pm_administration_menu" action="pm_list_user_action" />
     </data>
 </odoo>

@@ -1,2 +1,7 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_product_module_product_module,product_module.product_module,model_product_module_product_module,,1,0,0,0
+access_superadminproduct,Superadmin product,model_product_module_product,group_superadmin,1,1,1,1
+access_usersproduct,All user product,model_product_module_product,,1,0,0,0
+access_providerproduct,Provider product,model_product_module_product,group_provider,1,1,1,1
+access_superadminorder,Superadmin order,model_product_module_order,group_superadmin,1,1,1,1
+access_usersorder,All user order,model_product_module_order,,1,0,0,0
+access_providerorder,Provider order,model_product_module_order,group_provider,1,1,0,0

@@ -1,0 +1,10 @@
+<odoo>
+    <data>
+        <record id="group_superadmin" model="res.groups">
+            <field name="name">Almazon / Superadmin</field>
+        </record>
+        <record id="group_provider" model="res.groups">
+            <field name="name">Almazon / Provider</field>
+        </record>
+    </data>
+</odoo>
