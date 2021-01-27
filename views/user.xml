@@ -16,7 +16,6 @@
                     <field name="email"/>
                     <field name="privilege"/>
                     <field name="login"/>
-                    <field name="company_name"/>
                 </field>
                 <field name="login_date" position="after"></field>
             </field>
@@ -36,7 +35,7 @@
                             <field name="alias"/>
                             <field name="privilege"/>
                             <field name="login"/>
-                            <field name="company_name"/>
+                            <field name="company_id"/>
                             <field name="lang"/>
                         </group>
                     </sheet>
@@ -52,7 +51,7 @@
                     <field name="name"/>
                     <field name="email"/>
                     <field name="login"/>
-                    <field name="company_name"/>
+                    <field name="company_id"/>
                     <field name="lang"/>
                 </search>
             </field>
