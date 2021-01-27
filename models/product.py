@@ -5,7 +5,7 @@
 from odoo import models, fields, api, exceptions
 
 
-
+# AUTHOR: IMANOL MONTORO
 class Product (models.Model):
     # The name of the module in Odoo.
     _name = 'product_module.product'

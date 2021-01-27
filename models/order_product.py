@@ -2,7 +2,7 @@ from odoo import models, fields, api
 
 # Relational table between order and product
 
-
+# AUTHOR: IMANOL MONTORO
 class Order_product (models.Model):
     _name = 'product_module.order_product'
 

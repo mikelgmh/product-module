@@ -1,5 +1,7 @@
 from odoo import models, fields, api, exceptions
 
+# AUTHOR: MIKEL GRANERO MARTIN DE HIJAS
+
 
 class User(models.Model):
     _name = 'res.users'

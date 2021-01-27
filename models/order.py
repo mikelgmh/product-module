@@ -4,6 +4,8 @@ from odoo import models, fields, api, exceptions
 # creation, total price of order and the which is the actual status
 # of the order.
 
+# AUTHOR: AKETZA ETXEBERRIA
+
 
 class Order (models.Model):
     _name = 'product_module.order'
@@ -37,19 +39,20 @@ class Order (models.Model):
         string='User',
         comodel_name='res.users'
     )
-    
-     # Onchange event to warn the user that the price value is incorrect
+
+    # Onchange event to warn the user that the price value is incorrect
     @api.onchange('total_price')
     def _verify__number(self):
         if self.total_price <= 0:
             return {
                 'warning': {
-                    'title': "Incorrect total price value",'message': 
+                    'title': "Incorrect total price value", 'message':
                     "The total price can't be less than 0",
-                    },
-                }
+                },
+            }
+
     @api.constrains('total_price')
     def _check_order_total_price(self):
-            if self.total_price > 1000:
-                raise exceptions.ValidationError("Total price must be less than 1000")
-            
+        if self.total_price > 1000:
+            raise exceptions.ValidationError(
+                "Total price must be less than 1000")

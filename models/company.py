@@ -1,7 +1,7 @@
 # The model reference to Company on the project_module module.
 from odoo import models, fields, api, exceptions
 
-
+# AUTHOR: IKER DE LA CRUZ
 class Company(models.Model):
     # Reference to the odoo's company model to extends.
     _name = 'res.company'
