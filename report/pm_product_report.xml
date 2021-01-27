@@ -2,11 +2,11 @@
     <template id="pm_product_report_template">
         <t t-call="report.html_container">
             <t t-call="report.external_layout">
-                <t t-value="bool(docs.mapped('id'))" t-set="show_product"/>
+                <t t-value="bool(docs.mapped('id'))" t-set="show_product" />
                 <!--><t t-value="True" t-set="show_project"/><-->
                 <div class="page">
-                    <div class="oe_structure"/>
-                    
+                    <div class="oe_structure" />
+
                     <div class="row">
                         <div class="col-md-12">
                             <table class="table table-condensed">
@@ -14,45 +14,40 @@
                                     <tr>
                                         <th>Name Product</th>
                                         <th>Price</th>
-					<th>Quantity</th>
-					<th>Total Price</th>
-					<!--><th>User</th><-->
+                                        <th>Quantity</th>
+                                        <th>Total Price</th>
+                                        <!--><th>User</th><-->
                                     </tr>
-                               </thead>
-                               <tbody>
+                                </thead>
+                                <tbody>
                                     <t t-foreach="docs" t-as="t">
-					<tr>
+                                        <tr>
                                             <td>
-                                            	<span t-field="t.name"/>
+                                                <span t-field="t.name" />
                                             </td>
-					    <td>
-						<span t-field="t.price"/>
-					    </td>
-					    <td>
-						<span t-field="t.quantity"/>
-					    </td>
                                             <td>
-                                               <span t-field="t.total_price"/>
+                                                <span t-field="t.price" />
+                                            </td>
+                                            <td>
+                                                <span t-field="t.quantity" />
+                                            </td>
+                                            <td>
+                                                <span t-field="t.total_price" />
                                             </td>
                                         </tr>
-					</t>
+                                    </t>
                                 </tbody>
                             </table>
                         </div>
                     </div>
-		    
-                    <div class="oe_structure"/>
+
+                    <div class="oe_structure" />
                 </div>
             </t>
         </t>
 
     </template>
 
-    <report id="pm_product_report"
-            model="product_module.product"
-            string="Almazon Products Report"
-            report_type="qweb-pdf"
-            name="products.pm_product_report_template"
-            file="pm_product_report_template"
-    />
+    <report id="pm_product_report" model="product_module.product" string="Almazon Products Report"
+        report_type="qweb-pdf" name="product_module.pm_product_report_template" file="pm_product_report_template" />
 </odoo>
