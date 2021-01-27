@@ -1,4 +1,4 @@
-from odoo import models, fields, api
+from odoo import models, fields, api, exceptions
 
 
 class User(models.Model):
@@ -18,6 +18,19 @@ class User(models.Model):
         required=True
     )
 
+    # The user alias
+    alias = fields.Char(
+        string='Alias of the user',
+        required=True,
+        size=50
+    )
+
+    # The number of chindren this person has.
+    children_number = fields.Integer(
+        string='Children',
+        default=0
+    )
+
     # Relations
     company_id = fields.Many2one(
         string='Instructor',
@@ -35,12 +48,18 @@ class User(models.Model):
         inverse_name='user_id'
     )
 
-    @api.onchange('total_price')
-    def _verify__number(self):
-        if self.total_price <= 0:
+    @api.onchange('alias')
+    def _verify__alias(self):
+        if len(str(self.alias)) < 3:
             return {
                 'warning': {
-                    'title': "Incorrect total price value", 'message':
-                    "The total price can't be less than 0",
+                    'title': "Incorrect length of the alias.", 'message':
+                    "The min length is 3.",
                 },
             }
+
+    @api.constrains('children_number')
+    def _check_max_children(self):
+        if self.children_number > 30:
+            raise exceptions.ValidationError(
+                "Peope with more than 30 children cannot join this company.")

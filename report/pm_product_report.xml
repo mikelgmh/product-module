@@ -48,5 +48,6 @@
 
     </template>
 
-    <report id="pm_product_report" model="product_module.product" string="Almazon Products Report" report_type="qweb-pdf" name="products.pm_product_report_template" file="pm_product_report_template" />
+    <report id="pm_product_report" model="product_module.product" string="Almazon Products Report"
+        report_type="qweb-pdf" name="product_module.pm_product_report_template" file="pm_product_report_template" />
 </odoo>
