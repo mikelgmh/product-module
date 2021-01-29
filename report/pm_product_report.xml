@@ -14,7 +14,6 @@
                                         <th>Price</th>
                                         <th>Quantity</th>
                                         <th>Total Price</th>
-                                        <th>User</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -31,9 +30,6 @@
                                             </td>
                                             <td>
                                                 <span t-field="t.total_price" />
-                                            </td>
-                                             <td>
-                                                <span t-field="t.user" />
                                             </td>
                                         </tr>
                                     </t>
