@@ -28,21 +28,28 @@
             <field name="active" eval="True" />
             <field name="arch" type="xml">
                 <form string="Create Company">
-                    <sheet>
-                        <h1>Create Company:</h1>
-                        <group>
-                            <group>
-                                <field name="name" string="Company Name:" />
-                                <field name="company_type" string="Company Type:" />
-                                <field name="company_bosses" string="Amount of bosses:" />
-                            </group>
-                            <group>
-                                <field name="country_id" string="Country:" />
-                                <field name="city" string="City:" />
-                                <field name="street" string="Street:" />
-                            </group>
-                        </group>
-                    </sheet>
+                    <notebook>
+                        <page name="company_page" string="Company">
+                            <sheet>
+                                <h1>Create Company:</h1>
+                                <group>
+                                    <group>
+                                        <field name="name" string="Company Name:" />
+                                        <field name="company_type" string="Company Type:" />
+                                        <field name="company_bosses" string="Amount of bosses:" />
+                                    </group>
+                                    <group>
+                                        <field name="country_id" string="Country:" />
+                                        <field name="city" string="City:" />
+                                        <field name="street" string="Street:" />
+                                    </group>
+                                </group>
+                            </sheet>
+                        </page>
+                        <page name="users_page" string="Users">
+                            <field name="user_id" stype="html" />
+                        </page>
+                    </notebook>
                 </form>
             </field>
         </record>
@@ -55,7 +62,8 @@
             <field name="arch" type="xml">
                 <search>
                     <field name="name" />
-                    <field name="street" /> <!--FIXME: Probably need a domain to work-->
+                    <field name="street" />
+                    <!--FIXME: Probably need a domain to work-->
                 </search>
             </field>
         </record>
