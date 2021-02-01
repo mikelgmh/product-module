@@ -34,7 +34,7 @@
                             <group>
                                 <field name="name" string="Company Name:" />
                                 <field name="company_type" string="Company Type:" />
-                                <field name="company_bosses" string="Amount of bosses:" />
+                                <field name="number_of_employees" string="Amount of bosses:" />
                             </group>
                             <group>
                                 <field name="country_id" string="Country:" />
