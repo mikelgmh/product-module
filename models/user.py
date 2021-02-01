@@ -35,7 +35,7 @@ class User(models.Model):
 
     # Relations
     company_id = fields.Many2one(
-        string='Instructor',
+        string='Company',
         comodel_name='res.company'
     )
     product_id = fields.One2many(
