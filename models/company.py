@@ -2,6 +2,8 @@
 from odoo import models, fields, api, exceptions
 
 # AUTHOR: IKER DE LA CRUZ
+
+
 class Company(models.Model):
     # Reference to the odoo's company model to extends.
     _name = 'res.company'
@@ -27,11 +29,8 @@ class Company(models.Model):
         ondelete='restrict'
     )
 
-    # The constrains to the company_bosses It validates if the amount of users
-    # is more than 10.
     @api.constrains('company_bosses')
-    def _check_bosses(self):
-        for r in self:
-            if r.company_bosses < 10:
-                raise exceptions.ValidationError(
-                    "Insufficient bosses: %s" % r.company_bosses)
+    def _check_max_children(self):
+        if self.company_bosses != len(self.user_id):
+            raise exceptions.ValidationError(
+                "The boss number is not correct.")
